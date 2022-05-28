@@ -191,6 +191,11 @@ class PostObjectType {
 			}
 		}
 
+		// Merge with connections set in register_post_type.
+		if ( ! empty( $post_type_object->graphql_connections ) ) {
+			$connections = array_merge( $connections, $post_type_object->graphql_connections );
+		}
+
 		return $connections;
 	}
 
